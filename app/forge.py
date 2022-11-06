@@ -48,6 +48,7 @@ def generate_branding_snippet(subject: str):
 		branding += ' ...'
 	return branding
 
+
 def generate_branding_keywords(subject: str):
 	# Load your API key from an environment variable or secret management service
 	load_dotenv()
