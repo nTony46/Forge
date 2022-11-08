@@ -1,10 +1,12 @@
 from typing import Union
 from fastapi import FastAPI, HTTPException
 from forge import generate_branding_snippet, generate_branding_keywords
+from mangum import Mangum
 
 MAX_PROMPT_LENGTH = 16
 
 app = FastAPI()
+handler = Mangum(app)
 
 @app.get("/")
 async def read_root():
