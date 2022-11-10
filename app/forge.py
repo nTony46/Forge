@@ -33,11 +33,11 @@ def generate_branding_snippet(subject: str):
 	load_dotenv()
 	openai.api_key = os.getenv("OPENAI_API_KEY")
 
-	enriched_prompt = f"Generate positive company branding for {subject}: "
+	enriched_prompt = f"Generate a long upbeat branding snippet for a {subject} brand:"
 	print("PROMPT:", enriched_prompt)
 
 	response = openai.Completion.create(
-		model="text-davinci-002", prompt=enriched_prompt, temperature=0.7, max_tokens=32
+		model="text-davinci-002", prompt=enriched_prompt, temperature=0.7, max_tokens=64
 	)
 	
 	# Get the generated text
@@ -54,7 +54,7 @@ def generate_branding_keywords(subject: str):
 	load_dotenv()
 	openai.api_key = os.getenv("OPENAI_API_KEY")
 
-	enriched_prompt = f"Generate popular keywords for {subject}: "
+	enriched_prompt = f"Generate popular keywords for {subject} "
 
 	response = openai.Completion.create(
 		model="text-davinci-002", prompt=enriched_prompt, temperature=0.7, max_tokens=32
@@ -64,7 +64,7 @@ def generate_branding_keywords(subject: str):
 	keywords = response["choices"][0]["text"]
 	# Turn string into a list. Strip white space and make all words lowercase
 	keywords_arr = re.split(",|\n|;|-", keywords)
-	keywords_arr = [word.lower().strip() for word in keywords_arr if len(word) > 0]
+	keywords_arr = [word.lower().strip().replace(' ', '-') for word in keywords_arr if len(word) > 0]
 	return keywords_arr
 
 
