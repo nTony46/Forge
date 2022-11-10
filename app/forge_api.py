@@ -45,8 +45,8 @@ async def generate_keywords_api(prompt: str):
 	
 
 def validate_prompt_length(prompt: str):
-	if len(prompt) >= MAX_PROMPT_LENGTH:
+	if len(prompt) > MAX_PROMPT_LENGTH:
 		raise HTTPException(
 			status_code=400, 
-			detail=f"Prompt length is too long. Must be under {MAX_PROMPT_LENGTH} characters"
+			detail=f"Prompt length is too long. Must be less than or equal to {MAX_PROMPT_LENGTH} characters"
 		)

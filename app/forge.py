@@ -65,6 +65,7 @@ def generate_branding_keywords(subject: str):
 	# Turn string into a list. Strip white space and make all words lowercase
 	keywords_arr = re.split(",|\n|;|-", keywords)
 	keywords_arr = [word.lower().strip().replace(' ', '-') for word in keywords_arr if len(word) > 0]
+	keywords_arr = [re.sub(r'\d.-', '', word) for word in keywords_arr]
 	return keywords_arr
 
 
