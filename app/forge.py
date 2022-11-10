@@ -4,7 +4,7 @@ import argparse
 import re
 from dotenv import load_dotenv
 
-MAX_LENGTH_USER_INPUT = 16
+MAX_LENGTH_USER_INPUT = 32
 
 def main():
 	# Capturing user input

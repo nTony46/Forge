@@ -4,7 +4,7 @@ from forge import generate_branding_snippet, generate_branding_keywords
 from mangum import Mangum
 from fastapi.middleware.cors import CORSMiddleware
 
-MAX_PROMPT_LENGTH = 16
+MAX_PROMPT_LENGTH = 32
 
 app = FastAPI()
 handler = Mangum(app)
