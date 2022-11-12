@@ -24,6 +24,6 @@ You can try out the application here: [https://forge-ntony46.vercel.app/](https:
 | --------- | ------------------------- |
 | Language  | Python                    |
 | Framework | FastAPI                   |
-| Hosting   | AWS(Lambda + API Gateway) |
+| Hosting   | AWS (Lambda + API Gateway) |
 | Other     | OpenAI, AWS CDK, Docker   |
 
