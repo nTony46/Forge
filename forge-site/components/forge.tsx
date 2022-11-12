@@ -1,6 +1,8 @@
 import React from "react";
 import Form from "./form"
 import Results from "./results"
+import Image from "next/image";
+import logo from "../public/logo2-forge.png"
 
 const Forge: React.FC = () => {
 	const CHAR_LIMIT = 32
@@ -44,7 +46,6 @@ const Forge: React.FC = () => {
 		setIsLoading(false);
 	}
 
-
 	let displayedElement = null
 
 	if (hasResultSnippet && hasResultKeywords){
@@ -61,11 +62,22 @@ const Forge: React.FC = () => {
 		) 
 	}
 
+	const gradientTextStyle =
+    	"text-white text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-400 mx-auto";
+
 	return (
-		<>
-			<h1>Forge</h1>
-			{displayedElement}
-		</>
+		<div className="h-screen flex">
+			<div className="max-w-md m-auto p-2">
+				<div className="bg-zinc-800 p-6 rounded-md text-white">
+					<div className="text-center my-6">
+						<Image alt="logo" src={logo} width={80} height={80} className="object-center m-auto"/>
+						<h1 className={gradientTextStyle + " text-3xl p-1.5"}>Forge</h1>
+						<div className={gradientTextStyle}>The AI Branding Assistant</div>
+					</div>		
+					{displayedElement}
+				</div>
+			</div>
+		</div>
 	);
 };
 
